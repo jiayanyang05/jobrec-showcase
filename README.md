@@ -1,7 +1,7 @@
 # Job Recommendation System
 
 A job-search web app that recommends jobs from your favorites: **Java** RESTful services, **OpenAI** keyword extraction, **TF-IDF** profiling blended with **Google Jobs** for geo-aware retrieval, a **MySQL** data layer with composite indexes, **Redis** cache-aside, and a **Docker / Kubernetes / Jenkins** delivery setup.
-The source code is private (see [Scope](#scope)).
+The source code is private.
 
 **Live demo:** https://32-199-90-119.sslip.io/ (register with any username of lowercase letters, digits and underscores; favorite a few jobs, then open **Recommended**)
 
@@ -55,11 +55,6 @@ Light synthetic load on one node: this verifies the behavior, not a capacity gai
 ### External APIs and deduplicated calls
 Search results are cached for 6 hours by (query, location); each job's OpenAI keywords are cached for 7 days; OpenAI is called once per page of jobs (not once per job) with schema-enforced output; real SerpAPI calls are capped per month.
 A repeated recommendation went from **~20.7 s cold to ~50 ms with zero external calls**. The first real run cost **$0.0032** in OpenAI usage (~17k tokens).
-
-## Scope
-
-The project extends a provided starter codebase (basic web UI and servlet skeleton). I don't have clearance to publish it, which is why the code is private. I'm happy to walk through it live.
-The TF-IDF recommender, the pooled/batched data layer and indexes, the Redis cache, the benchmark harness, the external-API layer, and the Docker/Kubernetes setup are my additions.
 
 ## Tech
 
